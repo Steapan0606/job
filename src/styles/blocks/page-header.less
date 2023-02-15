@@ -10,7 +10,7 @@
   z-index: 100;
 
   @media @bw1660 {
-    height: 111;
+    height: 111px;
   }
 
   &::before {
@@ -28,24 +28,26 @@
       backdrop-filter: blur(20px);
     }
     &__container {
-      .container;
-      position: relative;
-      display: flex;
-      align-items: center;
-      z-index: 1;
+      .container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        z-index: 1;
+      }
     }
   }
 
   &__container {
-    .container();
-    box-sizing: border-box;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    max-width: 1414px;
-    width: 100%;
-    padding-left: 40px;
-    padding-right: 40px;
+    .container {
+      box-sizing: border-box;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      max-width: 1414px;
+      width: 100%;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
   }
 
   &__logo {
@@ -84,14 +86,17 @@
       flex-direction: column;
       align-items: flex-start;
       padding: 211px 30px 30px;
-      background-color: fade (@gray, 98%);
-      transition: transform 0.45;
-    }
-    overflow-x: hidden;
-    overflow-y: auto;
-    @supports (backdrop-filter: blur(20px)) {
-      background-color: fade(@gray, 70%);
-      backdrop-filter: blur(20px);
+      background-color: fade(@gray, 98%);
+      transition: transform 0.4s;
+
+      transform: translateX(-100%);
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      @supports (backdrop-filter: blur(20px)) {
+        background-color: fade(@gray, 70%);
+        backdrop-filter: blur(20px);
+      }
     }
   }
 
@@ -111,20 +116,29 @@
     &:active {
       color: @red;
     }
+
+    @media @bw1020 {
+      margin: 0 0 40px;
+      font-size: 16px;
+      line-height: 22px;
+    }
   }
 
   &__right-block {
     display: flex;
     justify-content: flex-end;
     width: 202px;
+
     @media @bw1660 {
       width: 152px;
     }
+
     @media @bw1020 {
       width: auto;
       margin-left: auto;
     }
   }
+
   &__user-btn {
     box-sizing: border-box;
     display: flex;
@@ -147,6 +161,7 @@
       background-color: @black;
       color: @white;
     }
+
     @media @bw1020 {
       display: flex;
       width: 40px;
@@ -167,6 +182,7 @@
       }
     }
   }
+
   &__user-icon {
     display: none;
 
@@ -175,8 +191,10 @@
       margin: auto;
     }
   }
+
   &__nav-toggle {
     display: none;
+
     @media @bw1020 {
       display: block;
       position: relative;
@@ -187,6 +205,7 @@
       border: none;
       background: none;
     }
+
     &::before,
     &::after {
       content: "";
