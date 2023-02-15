@@ -70,10 +70,29 @@
   }
 
   &__nav {
-    display: none;
-    // margin: 0 auto;
-    // display: flex;
-    // align-items: baseline;
+    box-sizing: border-box;
+    display: flex;
+    align-items: baseline;
+    margin: 0 auto;
+
+    @media @bw1020 {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 211px 30px 30px;
+      background-color: fade (@gray, 98%);
+      transition: transform 0.45;
+    }
+    overflow-x: hidden;
+    overflow-y: auto;
+    @supports (backdrop-filter: blur(20px)) {
+      background-color: fade(@gray, 70%);
+      backdrop-filter: blur(20px);
+    }
   }
 
   &__nav-link {
@@ -123,7 +142,7 @@
     color: @black;
     transition: color 0.2s, background-color 0.2s;
 
-    // &:hover,
+    &:hover,
     &:active {
       background-color: @black;
       color: @white;
