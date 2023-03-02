@@ -1,5 +1,3 @@
-@import "../global/mixins.less";
-
 .page-header {
   position: fixed;
   top: 0;
@@ -158,29 +156,23 @@
     }
   }
 
-  &__user-btn {
+  &__btn {
+    max-width: 100%;
+    display: inline-block;
     box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 15px 40px;
     border: 1px solid @black;
     background-color: transparent;
-    text-decoration: none;
     outline: none;
+    color: @black;
     font-weight: 600;
     font-size: 16px;
-    line-height: 1.3;
+    line-height: 20px;
     text-align: center;
-    color: @black;
-    transition: color 0.2s, background-color 0.2s;
-
-    &:hover,
-    &:active {
-      background-color: @black;
-      color: @white;
-    }
-
+    text-decoration: none;
+    transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+    overflow: hidden;
+    cursor: pointer;
     @media @bw1020 {
       display: flex;
       width: 40px;
@@ -195,9 +187,9 @@
     &:hover {
       background-color: @black;
       color: @white;
-
       @media @bw1020 {
-        background-color: transparent;
+        background: none;
+        color: @red;
       }
     }
   }
@@ -249,28 +241,6 @@
     }
     &::after {
       top: 25px;
-    }
-  }
-}
-
-.show-nav {
-  body {
-    @media @bw1020 {
-      overflow: hidden;
-    }
-  }
-  .page-header__nav {
-    @media @bw1020 {
-      transform: translateX(0);
-    }
-  }
-  .page-header__nav-toggle {
-    &::before {
-      transform: translate(0px, 6px) rotate(45deg);
-      box-shadow: none;
-    }
-    &::after {
-      transform: translate(0px, -6px) rotate(-45deg);
     }
   }
 }
